@@ -1,0 +1,31 @@
+@use '../base/typography' as *;
+
+// -------------- _variables Files scss -------------
+
+// ### -- Colors  --
+$color_red: rgba(255,96,96,1);
+$color_gray: rgba(246,246,246,0.450);
+$color__black: #000000;
+$color__white: #ffffff;
+
+
+// Famille de police
+$font-primary: 'Montserrat', sans-serif;
+
+// Graisses
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Tailles 
+$font-size-xxs: 0.625rem;   // 10px
+$font-size-xs: 0.75rem;     // 12px
+$font-size-xm: 0.8125rem;   // 13px
+$font-size-sm: 0.875rem;    // 14px
+$font-size-base: 1rem;      // 16px
+$font-size-lg: 1.125rem;    // 18px
+$font-size-xl: 1.5rem;      // 24px
+$font-size-xxl: 2.25rem;    // 36px
+$font-size-xxxl: 3rem;      // 48px
+$font-size-404: 6rem;       // 96px
+$font-size-404xl: 18rem;    // 288px

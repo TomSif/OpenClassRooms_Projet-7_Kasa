@@ -5,7 +5,7 @@ import {
   
   import Home from './pages/Home';
   import About from './pages/About';
-//   import NotFound from './pages/NotFound';
+  import Error from './pages/error';
   
   const router = createBrowserRouter([
     {
@@ -16,10 +16,10 @@ import {
       path: '/about',
       element: <About />,
     },
-    // {
-    //   path: '*',
-    //   element: <NotFound />,
-    // },
+    {
+      path: '*',
+      element: <Error />,
+    },
   ]);
   
   export default router;

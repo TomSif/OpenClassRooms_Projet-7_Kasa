@@ -1,0 +1,33 @@
+@use '../abstracts/variables' as vars;
+// -------------- Footer Files scss -------------
+
+.footer{
+    color: vars.$color__white;
+    background-color: vars.$color__black;
+    font-family: vars.$font-primary;
+    font-size: vars.$font-size-xs;
+    font-weight: vars.$font-weight-medium;
+    line-height: 1.43;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @media(min-width: 768px){
+        font-size: vars.$font-size-xl;
+    }
+
+        &__logo{
+            margin-top: 4.125rem;
+            width: 7.625rem;
+            height: 2.5rem;
+        }
+
+        &__copyright{
+            padding: 1rem 1rem 0.25rem 1rem;
+            max-width: 8.375rem;
+            text-align: center;
+            @media(min-width: 768px){
+                max-width: 32rem;
+        }
+    }
+}

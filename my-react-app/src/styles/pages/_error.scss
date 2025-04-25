@@ -1,0 +1,31 @@
+@use '../abstracts/variables' as vars;
+
+// -------------- Error file scss -------------
+
+.error__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:7rem;
+    padding: 7rem 0;
+}
+
+.error__title{
+    font-family: vars.$font-primary;
+    color: vars.$color_red;
+    font-weight: vars.$font-weight-bold;
+    font-size: vars.$font-size-404;
+    text-align: center;
+    line-height: 1.426;
+}
+
+.error__text{
+    font-family: vars.$font-primary;
+    color: vars.$color_red;
+    font-weight: vars.$font-weight-medium;
+    font-size: vars.$font-size-lg;
+    text-align: center;
+    line-height: 1.426;
+
+}

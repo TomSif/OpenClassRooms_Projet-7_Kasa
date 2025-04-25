@@ -1,0 +1,132 @@
+@use '../abstracts/variables' as vars;
+
+// -------------- Home file scss -------------
+
+.main{
+    padding: 0.4375rem 1.25rem;
+    @media (min-width:902px) {
+        padding: 0rem 6.25rem 3.125rem 6.25rem;
+        }
+    
+    &__title-container{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color:vars.$color__white;
+        background-image: url("../../../public/images/background-forest.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width:100%;
+        height: 6.9375rem;
+        padding-left: 1rem;
+        position: relative;
+        z-index: 1;
+        border-radius: 1rem;
+        margin-bottom: 1.375rem;
+        @media (min-width:768px) {
+            height: 223px;
+        }
+
+
+        &::after{
+            content:'';
+            display: block;
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            opacity: 80%;
+            z-index: 2;
+            border-radius: 1rem;
+
+        }
+    }
+
+    &__title{
+        width: 14rem;
+        text-align: left;
+        font-size: vars.$font-size-xl;
+        position: relative;
+        z-index: 3;
+        @media (min-width:768px) {
+            font-size: vars.$font-size-xxxl;
+            width: 100%;
+            text-align: center;
+            text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+
+    }
+
+    .no-break {
+        display: block;
+        @media (min-width: 768px) {
+              display: none;
+            }
+      }
+
+    .cards__container{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+        align-items: center;
+        width:100%;
+        gap: 1.25rem;
+        justify-items: center;
+        @media (min-width: 1006px) {
+            gap: 3.75rem;
+            background-color: vars.$color_gray;
+            padding: 3.75rem 3.125rem;
+            border-radius: 1.5rem;
+        }
+
+
+    }
+
+    .cards{
+        position: relative; 
+        overflow: hidden; 
+        width: 100%;
+        height: 100%;
+        max-height: 21.25rem;
+        min-height: 16rem;
+        border-radius: 1.5rem;
+        transition: transform 0.05s ease-in;
+        transition: box-shadow 0.05s ease-in;
+
+        &:has(.cards__link:focus), &:has(.cards__link:active), &:has(.cards__link:hover) {
+            // outline: 3px solid vars.$color__black;
+            transform: scale(1.01);
+            -webkit-box-shadow: 5px 5px 9px 1px rgba(0,0,0,0.7); 
+            box-shadow: 5px 5px 9px 1px rgba(0,0,0,0.7);
+            }
+
+    }
+
+    .cards__link{
+        display: inline;
+    }
+
+
+
+    .cards img{
+        width: 100%;
+        height: 100%;
+        max-height: 21.25rem;
+        min-height: 16rem;
+        border-radius: 1.5rem;
+        position: relative;
+        object-fit: cover;
+    }
+
+    .cards-title{
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        font-size: vars.$font-size-lg;
+        color: vars.$color__white;
+        z-index: 2;
+    }
+    
+}   
