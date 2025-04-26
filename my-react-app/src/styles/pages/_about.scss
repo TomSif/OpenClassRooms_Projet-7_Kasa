@@ -1,128 +1,113 @@
 @use '../abstracts/variables' as vars;
 
-// -------------- About file scss -------------
+// ----------- About file scss -------------
 
-.about{
-    padding: 0.4375rem 1.25rem;
-    @media (min-width:902px) {
-        padding: 0rem 6.25rem 3.125rem 6.25rem;
-        }
-    
-    &__title-container{
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        color:vars.$color__white;
-        background-image: url("../../../public/images/background-montain.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        width:100%;
-        height: 6.9375rem;
-        padding-left: 1rem;
-        position: relative;
-        z-index: 1;
-        border-radius: 1rem;
-        margin-bottom: 1.375rem;
-        @media (min-width:768px) {
-            height: 223px;
-        }
-
-
-        &::after{
-            content:'';
-            display: block;
-            position: absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.6);
-            opacity: 80%;
-            z-index: 2;
-            border-radius: 1rem;
-
-        }
-    }
-}
-.about-details-container{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    gap:20px;
-    margin-bottom: 20px;
-}
-
-details {
-  background-color: vars.$color__white;
-  width:100%;
+.about {
+  padding: 0.4375rem 1.25rem;
+  @media (min-width: 902px) {
+    padding: 0rem 6.25rem 3.125rem 6.25rem;
   }
 
-  details p {
-    border: none;
-    color: vars.$color__black;
-    border-radius: 8px;
-    background-color: vars.$color_gray;
-    padding: 10px 40px;
-    font-family: vars.$font-primary;
-    font-size: vars.$font-size-xs;
-    font-weight: vars.$font-weight-regular;
-    width: 100%;
-    text-align: left;
-    line-height: 1.42;
-  }
-  
-  summary {
-    cursor: pointer;
-    border: none;
-    color: vars.$color__white;
-    border-radius: 8px;
-    background-color: vars.$color_red;
-    padding: 10px 9px;
-    font-family: vars.$font-primary;
-    font-size: vars.$font-size-xm;
-    font-weight: vars.$font-weight-medium;
-    width: 100%;
-    line-height: 1;
+  &__title-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    color: vars.$color__white;
+    background-image: url("../../../public/images/background-montain.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 6.9375rem;
+    padding-left: 1rem;
     position: relative;
     z-index: 1;
-  }
-  
-  details[open] {
-    background-color: vars.$color_gray;
     border-radius: 1rem;
+    margin-bottom: 1.375rem;
 
-  }
-  
-  summary::-webkit-details-marker {
-    display: none; /* enlever la flèche par défaut sur Chrome/Safari */
-  }
-  
-  summary::after {
-    content: ""; /* icône personnalisée */
-    position: absolute;
-    right: 0.5rem;
-    top: 0.65rem;
-    transition: transform 0.3s;
-    background-image: url('../../../public/images/flèche-haut.svg');
-    width: 17px;
-    height: 17px;
-    background-repeat: no-repeat;
+    @media (min-width: 768px) {
+      height: 223px;
+    }
 
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      opacity: 0.8;
+      z-index: 2;
+      border-radius: 1rem;
+    }
   }
-  
-  details[open] summary::after {
-    content: ""; /* icône personnalisée */
-    position: absolute;
-    right: 0.5rem;
-    top: 0.65rem;
-    transition: transform 0.3s;
-    background-image: url('../../../public/images/flèche-bas.svg');
-    width: 17px;
-    height: 17px;
-    background-repeat: no-repeat;
+}
 
-  }
+.about-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+// ----------- Collapse component -------------
+
+.details {
+  width: 100%;
+  background-color: vars.$color__white;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.summary {
+  cursor: pointer;
+  color: vars.$color__white;
+  background-color: vars.$color_red;
+  padding: 10px 9px;
+  font-family: vars.$font-primary;
+  font-size: vars.$font-size-xm;
+  font-weight: vars.$font-weight-medium;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border-radius: 8px;
+}
+
+.arrow {
+  width: 17px;
+  height: 17px;
+  background-image: url('../../../public/images/flèche-haut.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: transform 0.3s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+/* --- Animation du content --- */
+
+.content {
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, padding 0.5s ease;
+  background-color: vars.$color_gray;
+  padding: 0 40px;
+}
+
+.content.open {
+  padding: 20px 40px;
+}
+
+.content p {
+  color: vars.$color__black;
+  font-family: vars.$font-primary;
+  font-size: vars.$font-size-xs;
+  font-weight: vars.$font-weight-regular;
+  text-align: left;
+  line-height: 1.42;
+}
