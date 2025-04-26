@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
@@ -11,8 +12,8 @@ function Header() {
       </svg>
       <nav className="header__nav">
         <ul className="header__list" aria-label="Navigation principale">
-          <li className="header__list__items"><a href="/">Accueil</a></li>
-          <li className="header__list__items"><a href="/about">À propos</a></li>
+          <li className="header__list__items"><Link to="/">Accueil</Link></li>
+          <li className="header__list__items"><Link to="/about">À propos</Link></li>
         </ul>
       </nav>
     </header>

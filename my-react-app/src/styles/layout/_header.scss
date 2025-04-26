@@ -43,8 +43,13 @@
             justify-content: flex-end;
             gap:1.625rem;
 
-            &__items{
+            &__items a{
                 white-space: nowrap;
+
+                &:hover, &:active, &:focus{
+                    text-decoration: underline;
+                    outline: none;
+                }
             }
         }
 

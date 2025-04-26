@@ -17,7 +17,10 @@
     font-weight: vars.$font-weight-bold;
     font-size: vars.$font-size-404;
     text-align: center;
-    line-height: 1.426;
+    margin:0;
+    @media (min-width:902px) {
+        font-size: vars.$font-size-404xl;
+    }
 }
 
 .error__text{
@@ -26,6 +29,22 @@
     font-weight: vars.$font-weight-medium;
     font-size: vars.$font-size-lg;
     text-align: center;
-    line-height: 1.426;
+    @media (min-width:902px) {
+        font-size: vars.$font-size-xxl;
+    }
+
+
+}
+
+.error__link{
+    font-family: vars.$font-primary;
+    color: vars.$color__black;
+    font-weight: vars.$font-weight-medium;
+    font-size: vars.$font-size-sm;
+    text-align: center;
+    text-decoration: underline;
+    @media (min-width:902px) {
+        font-size: vars.$font-size-lg;
+    }
 
 }
