@@ -18,11 +18,13 @@
 
 // Components
 @use 'components/button';
+@use 'components/slideshow';
 
 // Pages
 @use 'pages/home';
 @use 'pages/error';
 @use 'pages/about';
+@use 'pages/appartement';
 
 // Themes
 @use 'themes/theme';

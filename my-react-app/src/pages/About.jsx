@@ -1,28 +1,46 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Collapse from '../components/Collapse'; // nouveau composant
+import Collapse from '../components/Collapse';
 
+/**
+ * About page component displaying company values in collapsible sections
+ * @component
+ * @returns {JSX.Element} About page layout with header, content sections, and footer
+ */
 function About() {
   return (
     <div className="body">
+      {/* Header component */}
       <Header />
+      
+      {/* Main content section */}
       <main className="about">
         <div className="about__title-container"></div>
+        
+        {/* 
+         * Container for collapsible content sections
+         * @type {JSX.Element}
+         */}
         <div className="about-details-container">
-          <Collapse title="Fiabilité">
-            Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées par nos équipes.
+          <Collapse title="Reliability">
+            The ads posted on Kasa guarantee total reliability. The photos match the accommodations, and all information is regularly verified by our teams.
           </Collapse>
+          
           <Collapse title="Respect">
-            La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation du voisinage entraînera une exclusion de notre plateforme.
+            Kindness is one of Kasa's founding values. Any discriminatory behavior or neighborhood disturbance will result in exclusion from our platform.
           </Collapse>
+          
           <Collapse title="Service">
-            La qualité du service est au cœur de notre engagement chez Kasa. Nous veillons à ce que chaque interaction, que ce soit avec nos hôtes ou nos locataires, soit empreinte de respect et de bienveillance.
+            Service quality is at the heart of our commitment at Kasa. We ensure that every interaction, whether with our hosts or tenants, is marked by respect and kindness.
           </Collapse>
-          <Collapse title="Sécurité">
-            La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes.
+          
+          <Collapse title="Security">
+            Security is Kasa's priority. For both our hosts and travelers, each accommodation meets the security criteria established by our services. By leaving ratings for both hosts and tenants, our teams can verify that standards are being respected. We also organize domestic security workshops for our hosts.
           </Collapse>
         </div>
       </main>
+      
+      {/* Footer component */}
       <Footer />
     </div>
   );
