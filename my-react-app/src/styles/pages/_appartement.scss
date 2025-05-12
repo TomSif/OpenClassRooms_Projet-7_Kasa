@@ -1,0 +1,21 @@
+@use '../abstracts/variables' as vars;
+
+// -------------- Appartement file scss -------------
+
+.appartement{
+    max-width: 77.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__details{
+        padding: 1.25rem;
+        @media (min-width:902px) {
+            padding: 2.8125rem 6.25rem 3.125rem 6.25rem;
+            font-size: vars.$font-size-xl ;   
+            }
+    
+    }
+}
+
+

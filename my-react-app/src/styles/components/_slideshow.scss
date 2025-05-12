@@ -1,25 +1,36 @@
-.slideshow-container {
+// -------------- slideshow scss -------------
+
+.slideshow {
     position: relative;
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
     overflow: hidden;
     border-radius: 10px;
+
+    &__window{
+        overflow: hidden;
+        width: 100%;
+        height: 450px;
+        position: relative;
+    }
+
+    &__track{
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+      height: 450px;
+    }
+
+    &__image{
+      width: 100%;
+      height: 450px;
+      flex: 0 0 100%;
+      object-fit: cover;
+      display: block;
+    }
   }
-  
-  .slide {
-    position: relative;
-    width: 100%;
-    height: 450px;
-  }
-  
-  .slide-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  
+    
   .arrow {
     position: absolute;
     top: 50%;

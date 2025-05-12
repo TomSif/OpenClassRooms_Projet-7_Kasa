@@ -91,7 +91,7 @@ const Appartement = () => {
   return (
     <div className='appartement'>
     <Header />
-    <div className="appartement-details">
+    <div className="appartement__details">
       <h1>{appartement.title}</h1>
       
       {/* Slideshow component with apartment images */}
@@ -99,7 +99,7 @@ const Appartement = () => {
         <Slideshow images={slideshowImages} />
       </div>
       
-      <div className="appartement-info">
+      <div className="appartement__info">
         <p className="location">{appartement.location}</p>
         
         {/* Display tags if available */}
