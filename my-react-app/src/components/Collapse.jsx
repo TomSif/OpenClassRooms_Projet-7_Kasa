@@ -30,10 +30,10 @@ function Collapse({ title, children }) {
   
       if (isOpen) {
         content.style.maxHeight = "400px"; // fixed at 400px
-        content.style.padding = "20px 40px";
+        content.style.padding = "13px 20px";
       } else {
         content.style.maxHeight = "0";
-        content.style.padding = "0 40px";
+        content.style.padding = "0 20px";
       }
     }, [isOpen]);
   

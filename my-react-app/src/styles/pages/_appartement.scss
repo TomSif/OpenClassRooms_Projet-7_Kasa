@@ -6,7 +6,6 @@
     max-width: 77.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
 
     &__details{
         padding: 1.25rem;
@@ -14,8 +13,121 @@
             padding: 2.8125rem 6.25rem 3.125rem 6.25rem;
             font-size: vars.$font-size-xl ;   
             }
-    
     }
+
+    &__title{
+        font-family: vars.$font-primary;
+        font-size: vars.$font-size-lg;
+        color: vars.$color_red;
+        font-weight: vars.$font-weight-medium;
+        line-height: 1.42;
+    }
+
+    &__location{
+        font-family: vars.$font-primary;
+        font-size: vars.$font-size-sm;
+        color: vars.$color__black;
+        font-weight: vars.$font-weight-medium;
+        line-height: 1.42;
+        padding: 0;
+        margin: 0;
+        padding-top: 5px;
+    }
+
+    &__tags{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        width: 100%;
+        list-style: none;
+        flex-wrap: wrap;
+        row-gap: 5px;
+        margin-top: 10px;
+
+        .tag{
+            font-family: vars.$font-primary;
+            font-size: vars.$font-size-xxs;
+            color: vars.$color__white;
+            font-weight: vars.$font-weight-bold;
+            line-height: 1.42;
+            background-color: vars.$color_red;
+            padding: 2px 26px;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__host-rating{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0.875rem;
+    }
+
+    &__rating{
+        display: flex;
+        max-width: 120px;
+        flex-direction: row;
+
+        &__star{
+            display: flex;
+            flex-direction: row;
+
+            .star-icon{
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 0.4375rem;
+            }
+        }
+    }
+
+    &__host{
+        display: flex;
+        align-items: center;
+
+        &__name{
+            font-family: vars.$font-primary;
+            font-size: vars.$font-size-xs;
+            color: vars.$color_red;
+            font-weight: vars.$font-weight-medium;
+            line-height: 1.42;
+            max-width: 3.75rem;
+            text-align: right;
+            margin-right: 1.3rem;
+        }
+
+        &__picture{
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    &__description{
+        width:100%;
+        margin-bottom: 1.25rem;
+
+        &__paragraph{
+            margin: 0;
+        }
+    }
+
+    &__equipements{
+        width:100%;
+        margin-bottom: 1.25rem;
+
+
+        &__item{
+            font-family: vars.$font-primary;
+            font-size: vars.$font-size-xs;
+            color: vars.$color__black;
+            font-weight: vars.$font-weight-regular;
+            }
+        }
+    
 }
 
 

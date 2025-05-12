@@ -4,6 +4,8 @@ import { fetchData } from '../api/fetchData';
 import Slideshow from '../components/slideShow.jsx';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
+import StarRating from '../components/Rating.jsx';
+import Collapse from '../components/Collapse';
 
 /**
  * Component that displays detailed information about a specific apartment
@@ -30,12 +32,6 @@ const Appartement = () => {
   const [loading, setLoading] = useState(true);
   
   /**
-   * State for storing potential error
-   * @type {[null|Error, Function]}
-   */
-  const [error, setError] = useState(null);
-
-  /**
    * Fetches specific apartment data on component mount
    * @function
    * @async
@@ -53,33 +49,25 @@ const Appartement = () => {
           setAppartement(foundAppartement);
         } else {
           // If no apartment is found with this id, throw an error
-          throw new Error("Appartement non trouvé");
+          navigate('/error');
+          return;
         }
         
         setLoading(false);
       } catch (err) {
-        setError(err);
-        setLoading(false);
+        console.error('Erreur de chargement :', err);
+        navigate('/error');
       }
     };
     
     getAppartementDetails();
-  }, [id]); // Re-run when id changes
+  }, [id, navigate]); // Re-run when id changes
 
   // Display loading state
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  // Display error state
-  if (error) {
-    return (
-      <div>
-        <p>Error: {error.message}</p>
-        <button onClick={() => navigate('/')}>Retour à la liste</button>
-      </div>
-    );
-  }
 
   // Prepare images array for the slideshow
   // Use cover as default and pictures array if available
@@ -92,62 +80,67 @@ const Appartement = () => {
     <div className='appartement'>
     <Header />
     <div className="appartement__details">
-      <h1>{appartement.title}</h1>
-      
+
       {/* Slideshow component with apartment images */}
       <div className="appartement-slideshow">
         <Slideshow images={slideshowImages} />
       </div>
       
       <div className="appartement__info">
-        <p className="location">{appartement.location}</p>
+        <h1 className='appartement__title'>{appartement.title}</h1>
+        <p className="appartement__location">{appartement.location}</p>
         
-        {/* Display tags if available */}
-        {appartement.tags && (
-          <div className="tags">
-            {appartement.tags.map((tag, index) => (
-              <span key={index} className="tag">{tag}</span>
-            ))}
+      {/* Display tags if available */}
+      {appartement.tags && (
+      <ul className="appartement__tags">
+        {appartement.tags.map((tag, index) => (
+          <li key={index} className="tag">{tag}</li>
+        ))}
+      </ul>
+      )}
+
+      <div className='appartement__host-rating'>
+        {/* Rating */}
+        {appartement.rating && (
+          <div className="appartement__rating">
+            <StarRating rating={appartement.rating}/>
           </div>
         )}
-        
-        {/* Host information */}
-        {appartement.host && (
-          <div className="host">
-            <p>{appartement.host.name}</p>
+         {/* Host information */}
+         {appartement.host && (
+          <div className="appartement__host">
+            <p className='appartement__host__name'>{appartement.host.name}</p>
             {appartement.host.picture && (
-              <img src={appartement.host.picture} alt={appartement.host.name} />
+              <img className="appartement__host__picture" src={appartement.host.picture} alt={appartement.host.name} />
             )}
           </div>
         )}
-        
-        {/* Rating */}
-        {appartement.rating && (
-          <div className="rating">
-            <p>Note: {appartement.rating}/5</p>
-          </div>
-        )}
-        
+      </div>
+
+    
+
         {/* Description */}
-        <div className="description">
-          <p>{appartement.description}</p>
+        <div className="appartement__description">
+          <Collapse title="Description">
+            <p className="appartement__description__paragraph">{appartement.description}</p>
+          </Collapse>
         </div>
         
         {/* Equipments if available */}
-        {appartement.equipments && (
-          <div className="equipments">
-            <h2>Équipements</h2>
-            <ul>
-              {appartement.equipments.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <div className="appartement__equipements">
+          {appartement.equipments && (
+            <Collapse title="Équipements">
+                <ul>
+                  {appartement.equipments.map((item, index) => (
+                    <li className="appartement__equipements__item"key={index}>{item}</li>
+                  ))}
+                </ul>
+            </Collapse>
+          )}
+        </div>
       </div>
-      
-      <button onClick={() => navigate('/')}>Retour à la liste</button>
     </div>
+
     <Footer />
     </div>
   );

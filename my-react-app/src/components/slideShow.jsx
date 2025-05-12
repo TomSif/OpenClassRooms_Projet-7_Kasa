@@ -98,11 +98,11 @@ const Slideshow = ({ images }) => {
       {/* Navigation arrows - only show if multiple images */}
       {showNavigation && (
         <>
-          <button className="arrow prev-arrow" onClick={prevSlide}>
-            &lt;
+          <button className="slideshow__arrow prev-arrow" onClick={prevSlide}>
+            <span className="s__arrow"></span>
           </button>
-          <button className="arrow next-arrow" onClick={nextSlide}>
-            &gt;
+          <button className="slideshow__arrow next-arrow" onClick={nextSlide}>
+            <span className="s__arrow"></span>
           </button>
         </>
       )}

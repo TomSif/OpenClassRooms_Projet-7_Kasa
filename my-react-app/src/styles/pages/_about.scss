@@ -58,7 +58,7 @@
 .details {
   width: 100%;
   background-color: vars.$color__white;
-  border-radius: 1rem;
+  border-radius: 6px;
   overflow: hidden;
 }
 
@@ -74,7 +74,7 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .arrow {
@@ -82,25 +82,21 @@
   height: 17px;
   background-image: url('../../../public/images/flèche-haut.svg');
   background-repeat: no-repeat;
-  background-size: contain;
-  transition: transform 0.3s ease;
+  background-position: center;
+  transition: transform 0.5s ease;
+  padding-top: 0.5rem;
 }
 
 .arrow.open {
-  transform: rotate(180deg);
+  transform: rotateX(180deg);
 }
 
 /* --- Animation du content --- */
 
 .content {
   overflow: hidden;
-  transition: max-height 0.5s ease-in-out, padding 0.5s ease;
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
   background-color: vars.$color_gray;
-  padding: 0 40px;
-}
-
-.content.open {
-  padding: 20px 40px;
 }
 
 .content p {
