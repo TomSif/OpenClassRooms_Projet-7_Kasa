@@ -95,6 +95,13 @@ const Slideshow = ({ images }) => {
         </div>
       </div>
 
+      {/* Counter display - show current slide number and total */}
+      {showNavigation && (
+        <div className="slideshow__counter">
+          {currentIndex + 1}/{totalSlides}
+        </div>
+      )}
+
       {/* Navigation arrows - only show if multiple images */}
       {showNavigation && (
         <>

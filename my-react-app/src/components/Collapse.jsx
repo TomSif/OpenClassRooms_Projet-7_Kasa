@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react';
-import '../styles/pages/_about.scss'; // adjust path if needed
 
 /**
  * Collapse component that shows/hides content with a toggle animation.

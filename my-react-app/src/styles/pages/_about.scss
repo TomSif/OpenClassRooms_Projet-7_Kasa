@@ -75,6 +75,11 @@
   justify-content: space-between;
   position: relative;
   border-radius: 6px;
+  @media (min-width: 902px) {
+    font-size: vars.$font-size-lg;
+    font-weight: vars.$font-weight-bold;
+  }
+
 }
 
 .arrow {
@@ -106,4 +111,8 @@
   font-weight: vars.$font-weight-regular;
   text-align: left;
   line-height: 1.42;
+  @media (min-width: 902px) {
+  font-size: vars.$font-size-lg;
+  }
+
 }

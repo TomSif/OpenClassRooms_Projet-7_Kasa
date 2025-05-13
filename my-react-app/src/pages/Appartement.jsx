@@ -78,67 +78,72 @@ const Appartement = () => {
   // Render apartment details
   return (
     <div className='appartement'>
-    <Header />
-    <div className="appartement__details">
-
-      {/* Slideshow component with apartment images */}
-      <div className="appartement-slideshow">
-        <Slideshow images={slideshowImages} />
+      <div className="appartement__header">
+        <Header />
       </div>
-      
-      <div className="appartement__info">
-        <h1 className='appartement__title'>{appartement.title}</h1>
-        <p className="appartement__location">{appartement.location}</p>
-        
-      {/* Display tags if available */}
-      {appartement.tags && (
-      <ul className="appartement__tags">
-        {appartement.tags.map((tag, index) => (
-          <li key={index} className="tag">{tag}</li>
-        ))}
-      </ul>
-      )}
+      <div className="appartement__details">
+        {/* Slideshow component with apartment images */}
+        <div className="appartement-slideshow">
+          <Slideshow images={slideshowImages} />
+        </div>
 
-      <div className='appartement__host-rating'>
-        {/* Rating */}
-        {appartement.rating && (
-          <div className="appartement__rating">
-            <StarRating rating={appartement.rating}/>
-          </div>
-        )}
-         {/* Host information */}
-         {appartement.host && (
-          <div className="appartement__host">
-            <p className='appartement__host__name'>{appartement.host.name}</p>
-            {appartement.host.picture && (
-              <img className="appartement__host__picture" src={appartement.host.picture} alt={appartement.host.name} />
+        <div className="appartement__wrapper">
+          <div className="appartement__info">
+            <h1 className='appartement__title'>{appartement.title}</h1>
+            <p className="appartement__location">{appartement.location}</p>
+            
+            {/* Display tags if available */}
+            {appartement.tags && (
+            <ul className="appartement__tags">
+              {appartement.tags.map((tag, index) => (
+                <li key={index} className="tag">{tag}</li>
+              ))}
+            </ul>
             )}
           </div>
-        )}
-      </div>
+
+          {/* host and rating container */}
+          <div className='appartement__host-rating'>
+            {/* Rating */}
+            {appartement.rating && (
+              <div className="appartement__rating">
+                <StarRating rating={appartement.rating}/>
+              </div>
+            )}
+            {/* Host information */}
+            {appartement.host && (
+              <div className="appartement__host">
+                <p className='appartement__host__name'>{appartement.host.name}</p>
+                {appartement.host.picture && (
+                  <img className="appartement__host__picture" src={appartement.host.picture} alt={appartement.host.name} />
+                )}
+              </div>
+            )}
+          </div>
+        </div>
 
     
-
-        {/* Description */}
-        <div className="appartement__description">
-          <Collapse title="Description">
-            <p className="appartement__description__paragraph">{appartement.description}</p>
-          </Collapse>
-        </div>
-        
-        {/* Equipments if available */}
-        <div className="appartement__equipements">
-          {appartement.equipments && (
-            <Collapse title="Équipements">
-                <ul>
-                  {appartement.equipments.map((item, index) => (
-                    <li className="appartement__equipements__item"key={index}>{item}</li>
-                  ))}
-                </ul>
+        <div className="appartement__collapse">
+          {/* Description */}
+          <div className="appartement__description">
+            <Collapse title="Description">
+              <p className="appartement__description__paragraph">{appartement.description}</p>
             </Collapse>
-          )}
+          </div>
+          
+          {/* Equipments if available */}
+          <div className="appartement__equipements">
+            {appartement.equipments && (
+              <Collapse title="Équipements">
+                  <ul>
+                    {appartement.equipments.map((item, index) => (
+                      <li className="appartement__equipements__item"key={index}>{item}</li>
+                    ))}
+                  </ul>
+              </Collapse>
+            )}
+          </div>
         </div>
-      </div>
     </div>
 
     <Footer />
