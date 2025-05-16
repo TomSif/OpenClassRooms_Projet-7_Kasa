@@ -13,6 +13,8 @@ const jsonUrl = '../../public/data/appartements.json';
  * @returns {Promise<Array>} Promise resolving to an array of apartment objects
  */
 export const fetchData = async () => {
+    console.log("fetchData");
+    console.trace();
     const response = await fetch(jsonUrl);
     if (!response.ok) {
       throw new Error('Network response was not ok');

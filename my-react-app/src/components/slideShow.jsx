@@ -11,9 +11,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 const Slideshow = ({ images }) => {
   // State to track current slide index
   const [currentIndex, setCurrentIndex] = useState(0);
+  // State to manage autoplay
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   // Calculate total slides
   const totalSlides = images.length;
-
 
   /**
    * Navigate to the next slide with infinite scrolling
@@ -23,7 +24,6 @@ const Slideshow = ({ images }) => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
   }, [totalSlides]);
 
-
   /**
    * Navigate to the previous slide with infinite scrolling
    * @function
@@ -32,14 +32,11 @@ const Slideshow = ({ images }) => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalSlides) % totalSlides);
   }, [totalSlides]);
 
-
-
   /**
    * Handle keyboard navigation
    * @function
    * @param {KeyboardEvent} event - Keyboard event
    */
-
   const handleKeyDown = useCallback((event) => {
     if (event.key === 'ArrowRight') {
       nextSlide();
@@ -48,31 +45,32 @@ const Slideshow = ({ images }) => {
     }
   }, [nextSlide, prevSlide]);
 
-
-
   // Add keyboard event listeners on mount and remove on unmount
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
-    
+
     // Cleanup function
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [handleKeyDown]);
 
-
+  // Effect for autoplay
+  useEffect(() => {
+    let interval;
+    if (isAutoPlaying) {
+      interval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    }
+    return () => clearInterval(interval); // Cleanup interval on unmount or when isAutoPlaying changes
+  }, [isAutoPlaying, nextSlide]);
 
   // Don't render slideshow if no images
   if (!images || images.length === 0) {
     return <div className="slideshow-container">Aucune image disponible</div>;
   }
 
-
   // Don't show navigation if only one image
   const showNavigation = images.length > 1;
-
-
-
 
   return (
     <div className="slideshow">
@@ -113,6 +111,22 @@ const Slideshow = ({ images }) => {
           </button>
         </>
       )}
+
+      {/* Autoplay toggle switch */}
+      <div className="slideshow__autoplay-controls">
+        <label className="toggle-switch" aria-label="Toggle autoplay">
+          <input
+            type="checkbox"
+            checked={isAutoPlaying}
+            onChange={() => setIsAutoPlaying(!isAutoPlaying)}
+            className="toggle-switch__input"
+          />
+          <span className="toggle-switch__slider"></span>
+        </label>
+        <span className="slideshow__autoplay-label">
+          {isAutoPlaying ? 'AUTO' : 'OFF'}
+        </span>
+      </div>
     </div>
   );
 };

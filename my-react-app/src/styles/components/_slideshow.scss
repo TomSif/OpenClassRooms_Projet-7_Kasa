@@ -74,11 +74,11 @@
     transition: transform ease-in-out 0.1s !important;
     width: 17px;
     height: 20px;
-        @media (min-width:902px) {
-        width: 47px;
-        height: 30px;
-        background-size: cover;
-        }
+      @media (min-width:902px) {
+      width: 47px;
+      height: 30px;
+      background-size: cover;
+      }
 
     &:hover {
       transform: scale(1.1);
@@ -89,23 +89,87 @@
     
   .slideshow__counter {
     display: none;
-    @media (min-width:902px) {
-    display: block;
-    position: absolute;
-    bottom: 4px;
-    color: white;
-    padding: 5px 10px;
-    font-size: vars.$font-size-lg;
-    font-weight: vars.$font-weight-medium;
-    margin: auto;
-    left: 50%;
-    right: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    }
+      @media (min-width:902px) {
+      display: block;
+      position: absolute;
+      bottom: 4px;
+      color: white;
+      padding: 5px 10px;
+      font-size: vars.$font-size-lg;
+      font-weight: vars.$font-weight-medium;
+      margin: auto;
+      left: 50%;
+      right: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      }
   }
     
-  /* Animation de transition entre les slides */
+  /* Animation slides */
   .slide {
     transition: opacity 0.5s ease-in-out;
   }
+
+  /* Toggle switch */
+.slideshow__autoplay-controls{
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  position: absolute;
+  bottom: 0;
+}
+
+.slideshow__autoplay-label{
+  padding: 5px 10px;
+  font-size: vars.$font-size-xm;
+  font-weight: vars.$font-weight-regular;
+  color: vars.$color__white;
+}
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 1.125rem;
+
+  &__input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .toggle-switch__slider {
+      background-color:rgb(255, 96, 96); // rouge
+    }
+
+    &:checked + .toggle-switch__slider::before {
+      transform: translateX(13px);
+    }
+
+    &:focus + .toggle-switch__slider {
+      box-shadow: 0 0 2px rgb(255, 96, 96);
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background-color: #e0e0e0;
+    transition: background-color 0.3s;
+    border-radius: 34px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 0.95rem;
+      width: 0.95rem;
+      left: 3px;
+      top: 0.05rem;
+      background-color: #fff;
+      transition: transform 0.3s;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
