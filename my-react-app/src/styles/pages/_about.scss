@@ -55,14 +55,13 @@
 
 // ----------- Collapse component -------------
 
-.details {
+.collapse {
   width: 100%;
   background-color: vars.$color__white;
   border-radius: 6px;
-  overflow: hidden;
 }
 
-.summary {
+.collapse-toggle {
   cursor: pointer;
   color: vars.$color__white;
   background-color: vars.$color_red;
@@ -75,11 +74,11 @@
   justify-content: space-between;
   position: relative;
   border-radius: 6px;
+  width: 100%;
   @media (min-width: 902px) {
     font-size: vars.$font-size-lg;
     font-weight: vars.$font-weight-bold;
   }
-
 }
 
 .arrow {
@@ -98,19 +97,20 @@
 
 /* --- Animation du content --- */
 
-.content {
+.collapse-content {
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
   background-color: vars.$color_gray;
 }
 
-.content p {
+.collapse-inner {
   color: vars.$color__black;
   font-family: vars.$font-primary;
   font-size: vars.$font-size-xs;
   font-weight: vars.$font-weight-regular;
   text-align: left;
   line-height: 1.42;
+  padding : 13px 20px;
   @media (min-width: 902px) {
   font-size: vars.$font-size-lg;
   }

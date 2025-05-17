@@ -95,7 +95,7 @@ const Slideshow = ({ images }) => {
 
       {/* Counter display - show current slide number and total */}
       {showNavigation && (
-        <div className="slideshow__counter">
+        <div className="slideshow__counter" aria-live="polite">
           {currentIndex + 1}/{totalSlides}
         </div>
       )}
@@ -103,10 +103,10 @@ const Slideshow = ({ images }) => {
       {/* Navigation arrows - only show if multiple images */}
       {showNavigation && (
         <>
-          <button className="slideshow__arrow prev-arrow" onClick={prevSlide}>
+          <button className="slideshow__arrow prev-arrow" onClick={prevSlide} aria-label="Image précédente">
             <span className="s__arrow"></span>
           </button>
-          <button className="slideshow__arrow next-arrow" onClick={nextSlide}>
+          <button className="slideshow__arrow next-arrow" onClick={nextSlide} aria-label="Image suivante">
             <span className="s__arrow"></span>
           </button>
         </>

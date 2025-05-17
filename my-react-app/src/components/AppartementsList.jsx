@@ -65,8 +65,10 @@ const AppartementList = () => {
       {appartements.map(appartement => (
         <li key={appartement.id} className='cards'>
           <Link to={`/appartement/${appartement.id}`} className="cards__link"> 
-            <img src={appartement.cover} alt={appartement.title} />
-            <span className='cards-title'>{appartement.title}</span>
+            <div className="cards__img-container">
+              <img className="cards__img" src={appartement.cover} alt={appartement.title} />
+              <span className='cards-title'>{appartement.title}</span>
+            </div>
           </Link>
         </li>
       ))}

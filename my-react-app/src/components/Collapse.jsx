@@ -1,53 +1,51 @@
 import { useState, useRef, useEffect } from 'react';
 
 /**
- * Collapse component that shows/hides content with a toggle animation.
- * @component
- * @param {Object} props - Component props
- * @param {string} props.title - The visible title that toggles the content
- * @param {React.ReactNode} props.children - Content to be shown/hidden
- * @returns {JSX.Element} Collapse component JSX
+ * Collapse component that toggles visibility of content with animation.
+ * @param {Object} props
+ * @param {string} props.title - The visible clickable title
+ * @param {React.ReactNode} props.children - Content to show/hide
  */
 function Collapse({ title, children }) {
-    /**
-     * State that controls whether the collapse is open or closed
-     */
-    const [isOpen, setIsOpen] = useState(false);
-    
-    /**
-     * Ref to the content DOM element for height animation
-     */
-    const contentRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const contentRef = useRef(null);
 
-    /**
-     * Effect that handles the open/close animation
-     * by adjusting the content element's styles
-     */
-    useEffect(() => {
-      const content = contentRef.current;
-      if (!content) return;
-  
-      if (isOpen) {
-        content.style.maxHeight = "400px"; // fixed at 400px
-        content.style.padding = "13px 20px";
-      } else {
-        content.style.maxHeight = "0";
-        content.style.padding = "0 20px";
-      }
-    }, [isOpen]);
-  
-    return (
-      <div className="details">
-        <div className="summary" onClick={() => setIsOpen(prev => !prev)}>
-          {title}
-          <span className={`arrow ${isOpen ? "open" : ""}`} />
-        </div>
-  
-        <div ref={contentRef} className="content">
+  useEffect(() => {
+    const content = contentRef.current;
+    if (!content) return;
+
+    if (isOpen) {
+      const scrollHeight = content.scrollHeight;
+      content.style.maxHeight = scrollHeight + "px";
+    } else {
+      content.style.maxHeight = "0px";
+    }
+  }, [isOpen]);
+
+  return (
+    <div className="collapse">
+      <button
+        className="collapse-toggle"
+        onClick={() => setIsOpen(prev => !prev)}
+        aria-expanded={isOpen}
+        aria-controls="collapse-content"
+      >
+        {title}
+        <span className={`arrow ${isOpen ? "open" : ""}`} />
+      </button>
+
+      <div
+        id="collapse-content"
+        ref={contentRef}
+        className="collapse-content"
+        aria-hidden={!isOpen}
+      >
+        <div className="collapse-inner">
           {children}
         </div>
       </div>
-    );
+    </div>
+  );
 }
-  
+
 export default Collapse;

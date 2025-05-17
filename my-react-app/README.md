@@ -1,12 +1,85 @@
-# React + Vite
+# Kasa - Property Rental Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Kasa Logo](https://github.com/TomSif/OpenClassRooms_Projet-7_Kasa/blob/main/my-react-app/public/logo.png?raw=true)
 
-Currently, two official plugins are available:
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [API Integration](#api-integration)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Overview
 
-## Expanding the ESLint configuration
+Kasa is a React-based property rental application developed as part of OpenClassrooms' Front-End Developer path (Project 7). The platform allows users to browse and rent various properties with detailed descriptions, amenities, and high-quality images.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This application was built from scratch using modern React practices and follows industry standards for code quality, component architecture, and user experience.
+
+## Features
+
+- Property listing with responsive card components
+- Detailed property pages with image carousels
+- Responsive design for all device sizes
+- Dynamic rating system
+- Collapsible content sections for property details
+- Tag-based property categorization
+- Error handling and 404 page
+
+## Technologies Used
+
+- **Frontend**: 
+  - React 17+
+  - React Router v6
+  - Sass for styling
+  - CSS Modules for component-scoped styles
+- **Build Tools**:
+  - Create React App (CRA)
+  - Babel
+  - Webpack
+- **Version Control**: Git, GitHub
+
+## Installation
+
+To set up the project locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/TomSif/OpenClassRooms_Projet-7_Kasa.git
+2. Navigate to the project directory:
+   cd OpenClassRooms_Projet-7_Kasa/my-react-app
+3. Install dependencies:
+   npm install
+4. To run the development server:
+   npm start
+5. To create a production build:
+   npm run build
+
+## Project Structure
+my-react-app/
+├── public/              # Static files
+│   ├── data/            # JSON data files
+│   └── images/          # Asset files
+├── src/
+│   ├── components/      # Reusable components
+│   ├── pages/           # Page components
+│   ├── styles/          # Global styles and Sass files
+│   ├── utils/           # Utility functions
+│   ├── App.js           # Main application component
+│   └── index.js         # Application entry point
+├── .gitignore
+├── package.json
+└── README.md
+
+## Contact
+Thomas Sifferle – thomas.sifferle@gmail.com
+Project Link: https://github.com/TomSif/OpenClassRooms_Projet-7_Kasa/tree/main/my-react-app
+
+## Licence
+This project is provided for educational purposes only and may contain materials that belong to OpenClassrooms as part of their coursework.
+Do not reuse or redistribute without proper attribution.
