@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import ImageModal from './imageModal';
+
 
 /**
  * Slideshow component that displays images with navigation arrows and counter
@@ -7,12 +9,13 @@ import React, { useState, useEffect, useCallback } from 'react';
  * @param {Array} props.images - Array of image URLs to display
  * @returns {JSX.Element} Slideshow component
  */
-
 const Slideshow = ({ images }) => {
   // State to track current slide index
   const [currentIndex, setCurrentIndex] = useState(0);
   // State to manage autoplay
   const [isAutoPlaying, setIsAutoPlaying] = useState(false);
+  // State to manage modal open/close
+  const [modalOpen, setModalOpen] = useState(false);
   // Calculate total slides
   const totalSlides = images.length;
 
@@ -44,6 +47,14 @@ const Slideshow = ({ images }) => {
       prevSlide();
     }
   }, [nextSlide, prevSlide]);
+
+  /**
+   * Handle double click on image to open modal
+   * @function
+   */
+  const handleDoubleClick = () => {
+    setModalOpen(true);
+  };
 
   // Add keyboard event listeners on mount and remove on unmount
   useEffect(() => {
@@ -88,6 +99,7 @@ const Slideshow = ({ images }) => {
               src={src}
               alt={`Slide ${index + 1}`}
               className="slideshow__image"
+              onDoubleClick={handleDoubleClick}
             />
           ))}
         </div>
@@ -127,6 +139,14 @@ const Slideshow = ({ images }) => {
           {isAutoPlaying ? 'AUTO' : 'OFF'}
         </span>
       </div>
+
+      {/* Fullscreen modal */}
+      {modalOpen && (
+        <ImageModal 
+          imageSrc={images[currentIndex]} 
+          onClose={() => setModalOpen(false)} 
+        />
+      )}
     </div>
   );
 };

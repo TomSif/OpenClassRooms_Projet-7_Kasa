@@ -1,23 +1,21 @@
-/**
- * Path to the JSON data file containing apartment listings
- * @constant
- * @type {string}
- */
-const jsonUrl = '../../public/data/appartements.json';
+// api/fetchData.js
+import appartements from '../assets/data/appartements.json';
 
 /**
- * Fetches apartment data from JSON file
- * @async
- * @function fetchData
- * @throws {Error} When network response is not OK
- * @returns {Promise<Array>} Promise resolving to an array of apartment objects
+ * Gets all apartment data from imported JSON
+ * @function getApartmentData
+ * @returns {Array} Array of apartment objects
  */
-export const fetchData = async () => {
-    console.log("fetchData");
-    console.trace();
-    const response = await fetch(jsonUrl);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return await response.json();
+export const getApartmentData = () => {
+    return appartements;
+};
+
+/**
+ * Gets a specific apartment by ID
+ * @function getApartmentById
+ * @param {string} id - The apartment ID
+ * @returns {Object|null} The apartment object or null if not found
+ */
+export const getApartmentById = (id) => {
+    return appartements.find(apartment => apartment.id === id) || null;
 };

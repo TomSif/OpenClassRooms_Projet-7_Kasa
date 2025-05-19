@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { fetchData } from '../api/fetchData';
+import { getApartmentById } from '../api/fetchData'; // Fonction spécialisée
 import Slideshow from '../components/slideShow.jsx';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
@@ -13,42 +13,25 @@ import Collapse from '../components/Collapse';
  * @returns {JSX.Element} Apartment details or loading/error states
  */
 const Appartement = () => {
-  /**
-   * Get the id parameter from the URL
-   */
   const { id } = useParams();
   const navigate = useNavigate();
   
-  /**
-   * State for storing the apartment data
-   * @type {[Object|null, Function]}
-   */
   const [appartement, setAppartement] = useState(null);
-  
-  /**
-   * State for tracking loading status
-   * @type {[boolean, Function]}
-   */
   const [loading, setLoading] = useState(true);
   
   /**
-   * Fetches specific apartment data on component mount
+   * Finds specific apartment data on component mount
    * @function
-   * @async
    */
   useEffect(() => {
-    const getAppartementDetails = async () => {
+    const getAppartementDetails = () => {
       try {
-        // Fetch all apartments data
-        const allData = await fetchData();
-        
-        // Find the specific apartment by id
-        const foundAppartement = allData.find(item => item.id === id);
+        // Get the specific apartment using dedicated function
+        const foundAppartement = getApartmentById(id);
         
         if (foundAppartement) {
           setAppartement(foundAppartement);
         } else {
-          // If no apartment is found with this id, throw an error
           navigate('/error');
           return;
         }
@@ -61,13 +44,12 @@ const Appartement = () => {
     };
     
     getAppartementDetails();
-  }, [id, navigate]); // Re-run when id changes
+  }, [id, navigate]);
 
   // Display loading state
   if (loading) {
     return <div>Loading...</div>;
   }
-
 
   // Prepare images array for the slideshow
   // Use cover as default and pictures array if available
@@ -110,6 +92,7 @@ const Appartement = () => {
                 <StarRating rating={appartement.rating}/>
               </div>
             )}
+            
             {/* Host information */}
             {appartement.host && (
               <div className="appartement__host">
