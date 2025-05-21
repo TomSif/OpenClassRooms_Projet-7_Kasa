@@ -32,14 +32,14 @@ const Appartement = () => {
         if (foundAppartement) {
           setAppartement(foundAppartement);
         } else {
-          navigate('/error');
+          navigate('/Error');
           return;
         }
         
         setLoading(false);
       } catch (err) {
         console.error('Erreur de chargement :', err);
-        navigate('/error');
+        navigate('/Error');
       }
     };
     
