@@ -52,7 +52,7 @@
 
     &:focus, &:active {
       outline:none;
-      filter: invert(1);
+      filter: invert(0.3);
     }
 
     &.prev-arrow {
@@ -75,14 +75,13 @@
     width: 17px;
     height: 20px;
       @media (min-width:902px) {
-      width: 47px;
-      height: 30px;
+      width: 5rem;
+      height: 2.7rem;
       background-size: cover;
       }
 
     &:hover {
       transform: scale(1.1);
-      filter: invert(1);
     }
   }
     
