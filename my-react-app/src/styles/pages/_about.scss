@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: flex-start;
     color: vars.$color__white;
-    background-image: url("../../../public/images/background-montain.png");
+    background-image: url("/images/background-montain.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -90,7 +90,7 @@
 .arrow {
   width: 17px;
   height: 17px;
-  background-image: url('../../../public/images/flèche-haut.svg');
+  background-image: url('/images/flèche-haut.svg');
   background-repeat: no-repeat;
   background-position: center;
   transition: transform 0.5s ease;
