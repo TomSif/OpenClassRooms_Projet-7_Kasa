@@ -7,12 +7,9 @@
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Project Structure](#project-structure)
-- [API Integration](#api-integration)
-- [Testing](#testing)
 - [Deployment](#deployment)
-- [Contributing](#contributing)
+- [Contact](#contact)
 - [License](#license)
 
 ## Project Overview
@@ -33,16 +30,21 @@ This application was built from scratch using modern React practices and follows
 
 ## Technologies Used
 
-- **Frontend**: 
-  - React 17+
-  - React Router v6
-  - Sass for styling
-  - CSS Modules for component-scoped styles
+- **Frontend**:
+  - [React 17+](https://reactjs.org/)
+  - [React Router v6](https://reactrouter.com/en/main) for routing
+  - [Sass](https://sass-lang.com/) for styling
+  - [CSS Modules](https://github.com/css-modules/css-modules) for scoped component styles
+
 - **Build Tools**:
-  - Create React App (CRA)
-  - Babel
-  - Webpack
-- **Version Control**: Git, GitHub
+  - [Vite](https://vitejs.dev/) (replaces Webpack and Babel)
+
+- **Version Control**:
+  - [Git](https://git-scm.com/)
+  - [GitHub](https://github.com/)
+
+- **Deployment**:
+  - [Vercel](https://vercel.com/) (including custom routing configuration via `vercel.json`)
 
 ## Installation
 
@@ -61,24 +63,28 @@ To set up the project locally, follow these steps:
    npm run build
 
 ## Project Structure
+```plaintext
 my-react-app/
-├── public/              # Static files
-│   ├── data/            # JSON data files
-│   └── images/          # Asset files
+├── public/
+│   ├── data/
+│   └── images/
 ├── src/
-│   ├── components/      # Reusable components
-│   ├── pages/           # Page components
-│   ├── styles/          # Global styles and Sass files
-│   ├── utils/           # Utility functions
-│   ├── App.js           # Main application component
-│   └── index.js         # Application entry point
+│   ├── components/
+│   ├── pages/
+│   ├── styles/
+│   ├── utils/
+│   ├── App.jsx
+│   └── main.jsx
 ├── .gitignore
 ├── package.json
 └── README.md
+```
+
+## Deployment
+Project Link: https://open-class-rooms-projet-7-kasa.vercel.app/
 
 ## Contact
 Thomas Sifferle – thomas.sifferle@gmail.com
-Project Link: https://github.com/TomSif/OpenClassRooms_Projet-7_Kasa/tree/main/my-react-app
 
 ## Licence
 This project is provided for educational purposes only and may contain materials that belong to OpenClassrooms as part of their coursework.
