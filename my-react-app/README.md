@@ -1,6 +1,6 @@
 # Kasa - Property Rental Application
 
-<img src="https://raw.githubusercontent.com/TomSif/OpenClassRooms_Projet-7_Kasa/main/public/images/Screenshot.png" alt="Bannière Kasa" width="600" />
+<img src="https://raw.githubusercontent.com/TomSif/OpenClassRooms_Projet-7_Kasa/main/my-react-app/public/images/Screenshot.png" alt="Bannière Kasa" width="600" />
 
 ## Table of Contents
 - [Project Overview](#project-overview)
