@@ -17,6 +17,9 @@ function Footer() {
         data={logo}
         className="footer__logo"
         alt="logo KASA"
+        title="Logo KASA"
+        role="none"
+        aria-label="logo KASA"
       ></object>
 
       {/* Copyright text with current year */}
