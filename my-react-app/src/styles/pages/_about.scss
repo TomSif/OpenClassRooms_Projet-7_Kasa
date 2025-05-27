@@ -1,4 +1,4 @@
-@use '../abstracts/variables' as vars;
+@use "../abstracts/variables" as vars;
 
 // ----------- About file scss -------------
 
@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: flex-start;
     color: vars.$color__white;
-    background-image: url("/images/background-montain.png");
+    background-image: url("/images/background-montain.webp");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -30,7 +30,7 @@
     }
 
     &::after {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       top: 0;
@@ -54,8 +54,7 @@
   @media (min-width: 902px) {
     max-width: 82.5%;
     margin: auto;
-}
-
+  }
 }
 
 // ----------- Collapse component -------------
@@ -64,7 +63,6 @@
   width: 100%;
   background-color: vars.$color__white;
   border-radius: 6px;
-
 }
 
 .collapse-toggle {
@@ -90,7 +88,7 @@
 .arrow {
   width: 17px;
   height: 17px;
-  background-image: url('/images/flèche-haut.svg');
+  background-image: url("/images/flèche-haut.svg");
   background-repeat: no-repeat;
   background-position: center;
   transition: transform 0.5s ease;
@@ -121,9 +119,8 @@
   font-weight: vars.$font-weight-regular;
   text-align: left;
   line-height: 1.42;
-  padding : 13px 20px;
+  padding: 13px 20px;
   @media (min-width: 902px) {
-  font-size: vars.$font-size-lg;
+    font-size: vars.$font-size-lg;
   }
-
 }
