@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import ImageModal from './imageModal';
-
+import React, { useState, useEffect, useCallback } from "react";
+import ImageModal from "./imageModal";
 
 /**
  * Slideshow component that displays images with navigation arrows and counter
@@ -40,13 +39,16 @@ const Slideshow = ({ images }) => {
    * @function
    * @param {KeyboardEvent} event - Keyboard event
    */
-  const handleKeyDown = useCallback((event) => {
-    if (event.key === 'ArrowRight') {
-      nextSlide();
-    } else if (event.key === 'ArrowLeft') {
-      prevSlide();
-    }
-  }, [nextSlide, prevSlide]);
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (event.key === "ArrowRight") {
+        nextSlide();
+      } else if (event.key === "ArrowLeft") {
+        prevSlide();
+      }
+    },
+    [nextSlide, prevSlide]
+  );
 
   /**
    * Handle double click on image to open modal
@@ -58,11 +60,11 @@ const Slideshow = ({ images }) => {
 
   // Add keyboard event listeners on mount and remove on unmount
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
 
     // Cleanup function
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [handleKeyDown]);
 
@@ -81,6 +83,7 @@ const Slideshow = ({ images }) => {
   }
 
   // Don't show navigation if only one image
+  /** @type {boolean} */
   const showNavigation = images.length > 1;
 
   return (
@@ -115,36 +118,46 @@ const Slideshow = ({ images }) => {
       {/* Navigation arrows - only show if multiple images */}
       {showNavigation && (
         <>
-          <button className="slideshow__arrow prev-arrow" onClick={prevSlide} aria-label="Image précédente">
+          <button
+            className="slideshow__arrow prev-arrow"
+            onClick={prevSlide}
+            aria-label="Image précédente"
+          >
             <span className="s__arrow"></span>
           </button>
-          <button className="slideshow__arrow next-arrow" onClick={nextSlide} aria-label="Image suivante">
+          <button
+            className="slideshow__arrow next-arrow"
+            onClick={nextSlide}
+            aria-label="Image suivante"
+          >
             <span className="s__arrow"></span>
           </button>
         </>
       )}
 
       {/* Autoplay toggle switch */}
-      <div className="slideshow__autoplay-controls">
-        <label className="toggle-switch" aria-label="Toggle autoplay">
-          <input
-            type="checkbox"
-            checked={isAutoPlaying}
-            onChange={() => setIsAutoPlaying(!isAutoPlaying)}
-            className="toggle-switch__input"
-          />
-          <span className="toggle-switch__slider"></span>
-        </label>
-        <span className="slideshow__autoplay-label">
-          {isAutoPlaying ? 'AUTO' : 'OFF'}
-        </span>
-      </div>
+      {showNavigation && (
+        <div className="slideshow__autoplay-controls">
+          <label className="toggle-switch" aria-label="Toggle autoplay">
+            <input
+              type="checkbox"
+              checked={isAutoPlaying}
+              onChange={() => setIsAutoPlaying(!isAutoPlaying)}
+              className="toggle-switch__input"
+            />
+            <span className="toggle-switch__slider"></span>
+          </label>
+          <span className="slideshow__autoplay-label">
+            {isAutoPlaying ? "AUTO" : "OFF"}
+          </span>
+        </div>
+      )}
 
       {/* Fullscreen modal */}
       {modalOpen && (
-        <ImageModal 
-          imageSrc={images[currentIndex]} 
-          onClose={() => setModalOpen(false)} 
+        <ImageModal
+          imageSrc={images[currentIndex]}
+          onClose={() => setModalOpen(false)}
         />
       )}
     </div>

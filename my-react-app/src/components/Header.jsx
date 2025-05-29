@@ -38,10 +38,10 @@ function Header() {
       <nav className="header__nav">
         <ul className="header__list" aria-label="Main navigation">
           <li className="header__list__items">
-            <Link to="/">Home</Link>
+            <Link to="/">Acceuil</Link>
           </li>
           <li className="header__list__items">
-            <Link to="/about">About</Link>
+            <Link to="/about">A Propos</Link>
           </li>
         </ul>
       </nav>

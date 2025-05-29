@@ -8,11 +8,11 @@
  * @requires ./components/Appartement
  */
 
-import { createBrowserRouter } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Error from './pages/Error'; // Note: Consistent PascalCase
-import Appartement from './pages/Appartement'; // Note: Consider renaming to "Apartment" for English conventions
+import { createBrowserRouter } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Error from "./pages/Error";
+import Appartement from "./pages/Appartement";
 
 /**
  * Main application route configuration
@@ -22,7 +22,7 @@ import Appartement from './pages/Appartement'; // Note: Consider renaming to "Ap
  */
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Home />,
     /**
      * @description Homepage displaying property listings
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
      */
   },
   {
-    path: '/about',
+    path: "/about",
     element: <About />,
     /**
      * @description Company information page
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
      */
   },
   {
-    path: '/appartement/:id', 
+    path: "/appartement/:id",
     element: <Appartement />,
     /**
      * @description Detailed property view
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
      */
   },
   {
-    path: '*',
+    path: "*",
     element: <Error />,
     /**
      * @description Fallback route for unmatched URLs (404)

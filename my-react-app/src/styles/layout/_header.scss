@@ -1,56 +1,61 @@
-@use '../abstracts/variables' as vars;
+@use "../abstracts/variables" as vars;
 
 // -------------- Header file scss -------------
 
-.header{
-    color: vars.$color__black;
-    background-color: vars.$color__white  ;
-    font-family: vars.$font-primary;
-    font-size: vars.$font-size-xs;
-    font-weight: vars.$font-weight-medium;
-    text-transform: uppercase;
-    line-height: 1.43;
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between;
-    padding: 1.25rem;
-    @media (min-width:902px) {
-        padding: 2.8125rem 6.25rem 3.125rem 6.25rem;
-        font-size: vars.$font-size-xl ;   
-        }
+.header {
+  color: vars.$color__black;
+  background-color: vars.$color__white;
+  font-family: vars.$font-primary;
+  font-size: vars.$font-size-xs;
+  font-weight: vars.$font-weight-medium;
+  text-transform: uppercase;
+  line-height: 1.43;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem;
+  @media (min-width: 902px) {
+    padding: 2.8125rem 6.25rem 3.125rem 6.25rem;
+    font-size: vars.$font-size-xl;
+    text-transform: inherit;
+  }
 
-        &__logo{
-            width: 9rem;
-            height: 3rem;
+  &__logo {
+    width: 9rem;
+    height: 3rem;
 
-            .logo-fill {
-                fill: vars.$color_red; 
-              }
-        }
+    .logo-fill {
+      fill: vars.$color_red;
+    }
+  }
 
-        &__nav{
-            max-width: 11.875rem;
-            @media(min-width: 768px){
-                max-width: 19.3755rem;
-            }
-        }
+  &__nav {
+    max-width: 11.875rem;
+    @media (min-width: 768px) {
+      max-width: 19.3755rem;
+    }
+  }
 
-        &__list{
-            width:100%;
-            flex: 1 1 0;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap:1.625rem;
+  &__list {
+    width: 100%;
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.625rem;
+    @media (min-width: 902px) {
+      gap: 4.25rem;
+    }
 
-            &__items a{
-                white-space: nowrap;
+    &__items a {
+      white-space: nowrap;
 
-                &:hover, &:active, &:focus{
-                    text-decoration: underline;
-                    outline: none;
-                }
-            }
-        }
-
+      &:hover,
+      &:active,
+      &:focus {
+        text-decoration: underline;
+        outline: none;
+      }
+    }
+  }
 }
