@@ -23,6 +23,10 @@
   &__logo {
     width: 9rem;
     height: 3rem;
+    @media (min-width: 902px) {
+      width: 13rem;
+      height: 4.3rem;
+    }
 
     .logo-fill {
       fill: vars.$color_red;
