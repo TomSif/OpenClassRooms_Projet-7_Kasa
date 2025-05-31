@@ -72,7 +72,7 @@ const Slideshow = ({ images }) => {
   useEffect(() => {
     let interval;
     if (isAutoPlaying) {
-      interval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+      interval = setInterval(nextSlide, 2000); // Change slide every 2 seconds
     }
     return () => clearInterval(interval); // Cleanup interval on unmount or when isAutoPlaying changes
   }, [isAutoPlaying, nextSlide]);
