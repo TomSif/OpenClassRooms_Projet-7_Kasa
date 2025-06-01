@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import ImageModal from "./imageModal";
+// import ImageModal from "./imageModal";
 
 /**
  * Slideshow component that displays images with navigation arrows and counter
@@ -12,9 +12,9 @@ const Slideshow = ({ images }) => {
   // State to track current slide index
   const [currentIndex, setCurrentIndex] = useState(0);
   // State to manage autoplay
-  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
+  // const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   // State to manage modal open/close
-  const [modalOpen, setModalOpen] = useState(false);
+  // const [modalOpen, setModalOpen] = useState(false);
   // Calculate total slides
   const totalSlides = images.length;
 
@@ -54,9 +54,9 @@ const Slideshow = ({ images }) => {
    * Handle double click on image to open modal
    * @function
    */
-  const handleDoubleClick = () => {
-    setModalOpen(true);
-  };
+  // const handleDoubleClick = () => {
+  //   setModalOpen(true);
+  // };
 
   // Add keyboard event listeners on mount and remove on unmount
   useEffect(() => {
@@ -69,13 +69,13 @@ const Slideshow = ({ images }) => {
   }, [handleKeyDown]);
 
   // Effect for autoplay
-  useEffect(() => {
-    let interval;
-    if (isAutoPlaying) {
-      interval = setInterval(nextSlide, 2000); // Change slide every 2 seconds
-    }
-    return () => clearInterval(interval); // Cleanup interval on unmount or when isAutoPlaying changes
-  }, [isAutoPlaying, nextSlide]);
+  // useEffect(() => {
+  //   let interval;
+  //   if (isAutoPlaying) {
+  //     interval = setInterval(nextSlide, 2000); // Change slide every 2 seconds
+  //   }
+  //   return () => clearInterval(interval); // Cleanup interval on unmount or when isAutoPlaying changes
+  // }, [isAutoPlaying, nextSlide]);
 
   // Don't render slideshow if no images
   if (!images || images.length === 0) {
@@ -102,7 +102,7 @@ const Slideshow = ({ images }) => {
               src={src}
               alt={`Slide ${index + 1}`}
               className="slideshow__image"
-              onDoubleClick={handleDoubleClick}
+              // onDoubleClick={handleDoubleClick}
             />
           ))}
         </div>
@@ -136,7 +136,7 @@ const Slideshow = ({ images }) => {
       )}
 
       {/* Autoplay toggle switch */}
-      {showNavigation && (
+      {/* {showNavigation && (
         <div className="slideshow__autoplay-controls">
           <label className="toggle-switch" aria-label="Toggle autoplay">
             <input
@@ -151,15 +151,15 @@ const Slideshow = ({ images }) => {
             {isAutoPlaying ? "AUTO" : "OFF"}
           </span>
         </div>
-      )}
+      )} */}
 
       {/* Fullscreen modal */}
-      {modalOpen && (
+      {/* {modalOpen && (
         <ImageModal
           imageSrc={images[currentIndex]}
           onClose={() => setModalOpen(false)}
         />
-      )}
+      )} */}
     </div>
   );
 };
